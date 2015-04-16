@@ -4,22 +4,22 @@ describe("thermostat functionality", function() {
     thermostat = new Thermostat();
   });
 
-  it("has a default temperature of 20", function() {
-    expect(thermostat.default_temp).toEqual(20);
+  it('has a default temperature of 20', function() {
+    expect(thermostat.defaultTemp).toEqual(20);
   });
 
   it('can increase the temperature', function(){
     thermostat.up();
-    expect(thermostat.default_temp).toEqual(21);
+    expect(thermostat.defaultTemp).toEqual(21);
   });
 
   it('can decrease the temperature', function() {
     thermostat.down();
-    expect(thermostat.default_temp).toEqual(19);
+    expect(thermostat.defaultTemp).toEqual(19);
   });
 
   it('has a minimum temperature of 10', function(){
-    thermostat.default_temp = 10;
+    thermostat.defaultTemp = 10;
     expect( function(){ thermostat.down(); } ).toThrow(new Error('10 is the minimum temp'));
   });
 
@@ -27,26 +27,36 @@ describe("thermostat functionality", function() {
     expect(thermostat.powerSaver).toBe(true);
   });
 
-  it('has a maximum temperature of 25 when powersaving is on', function() {
-    thermostat.default_temp = 25;
-    expect( function(){ thermostat.up(); } ).toThrow(new Error('25 is the maximum when powersaving'));
-  });
-
-  it('has a switch function that turns off powersaving', function() {
-    thermostat.switch();
+  it('has a switch function that turns powersaving off when its on', function() {
+    thermostat.change();
     expect(thermostat.powerSaver).toBe(false);
   });
 
+  it('has a switch function that turns powersaving on when its off', function() {
+    thermostat.change();
+    thermostat.change();
+    expect(thermostat.powerSaver).toBe(true);
+  });
+
+  it('has a maximum temperature of 25 when powersaving is on', function() {
+    thermostat.defaultTemp = 25;
+    expect( function(){ thermostat.up(); } ).toThrow(new Error('25 is the maximum when powersaving'));
+  });
+
   it('has a maximum temperature of 32 when powersaving is off', function() {
-    thermostat.switch();
-    thermostat.default_temp = 32;
+    thermostat.change();
+    thermostat.defaultTemp = 32;
     expect( function(){ thermostat.up(); } ).toThrow(new Error('32 is the maximum'));
   });
 
   it('has a reset function that resets the temperature to 20', function() {
     thermostat.up();
-    thermostat.reset();
-    expect(thermostat.default_temp).toEqual(20);
+    thermostat.resetTemp();
+    expect(thermostat.defaultTemp).toEqual(20);
+  });
+
+  it('starts off as yellow', function(){
+    expect(thermostat.colour).toEqual('yellow');
   });
 
 });
