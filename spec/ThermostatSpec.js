@@ -34,7 +34,13 @@ describe("thermostat functionality", function() {
 
   it('has a switch function that turns off powersaving', function() {
     thermostat.switch();
-    expect(thermostat.powerSaver).toBe(false)
+    expect(thermostat.powerSaver).toBe(false);
+  });
+
+  it('has a maximum temperature of 32 when powersaving is off', function() {
+    thermostat.switch();
+    thermostat.default_temp = 32;
+    expect( function(){ thermostat.up(); } ).toThrow(new Error('32 is the maximum when powersaving'));
   });
 
 });

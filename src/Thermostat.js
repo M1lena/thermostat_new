@@ -17,3 +17,7 @@ Thermostat.prototype.down = function() {
   };
   this.default_temp --;
 };
+
+Thermostat.prototype.switch = function() {
+  this.powerSaver = !(this.powerSaver);
+};
