@@ -5,6 +5,9 @@ var Thermostat = function(){
 };
 
 Thermostat.prototype.up = function() {
+  if (this.default_temp === 25) {
+    throw new Error('25 is the maximum when powersaving');
+  };
   this.default_temp ++;
 };
 

@@ -24,12 +24,17 @@ describe("thermostat functionality", function() {
   });
 
   it('has Power Saving mode that is automatically on', function() {
-    expect(thermostat.powerSaver).toEqual(true);
+    expect(thermostat.powerSaver).toBe(true);
   });
 
   it('has a maximum temperature of 25 when powersaving is on', function() {
     thermostat.default_temp = 25;
     expect( function(){ thermostat.up(); } ).toThrow(new Error('25 is the maximum when powersaving'));
+  });
+
+  it('has a switch function that turns off powersaving', function() {
+    thermostat.switch();
+    expect(thermostat.powerSaver).toBe(false)
   });
 
 });
