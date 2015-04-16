@@ -8,4 +8,10 @@ $(document).ready(function() {
     thermostat.up();
     $('#temperature').text(thermostat.defaultTemp);
   });
+
+  $('#downButton').click (function(){
+    thermostat.down();
+    $('#temperature').text(thermostat.defaultTemp);
+  });
+
 });

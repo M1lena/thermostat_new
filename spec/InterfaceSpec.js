@@ -23,4 +23,9 @@ describe("Interface functionality", function() {
     expect('#downButton').toBeVisible();
   });
 
+  it('the down button increments the temperature', function() {
+    $('#downButton').click();
+    expect('#temperature').toContainText('19');
+  });
+
 });
