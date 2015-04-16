@@ -27,4 +27,9 @@ describe("thermostat functionality", function() {
     expect(thermostat.powerSaver).toEqual(true);
   });
 
+  it('has a maximum temperature of 25 when powersaving is on', function() {
+    thermostat.default_temp = 25;
+    expect( function(){ thermostat.up(); } ).toThrow(new Error('25 is the maximum when powersaving'));
+  });
+
 });

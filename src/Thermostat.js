@@ -1,6 +1,7 @@
 var Thermostat = function(){
   this.default_temp = 20;
   this.minimum_temp = 10;
+  this.powerSaver = true;
 };
 
 Thermostat.prototype.up = function() {
