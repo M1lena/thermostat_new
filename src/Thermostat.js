@@ -2,7 +2,7 @@ var Thermostat = function(){
   this.defaultTemp = 20;
   this.minimumTemp = 10;
   this.powerSaver = true;
-  this.colour = 'yellow';
+  this.tempColour = 'yellow';
 };
 
 Thermostat.prototype.up = function() {
@@ -20,6 +20,7 @@ Thermostat.prototype.down = function() {
     throw new Error('10 is the minimum temp');
   };
   this.defaultTemp --;
+  this.colour();
 };
 
 Thermostat.prototype.change = function() {
@@ -28,4 +29,10 @@ Thermostat.prototype.change = function() {
 
 Thermostat.prototype.resetTemp = function() {
   this.defaultTemp = 20;
+};
+
+Thermostat.prototype.colour = function() {
+  if (this.defaultTemp < 18) {
+    this.tempColour = 'green';
+  };
 };

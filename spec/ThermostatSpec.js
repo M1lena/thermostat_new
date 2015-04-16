@@ -56,12 +56,20 @@ describe("thermostat functionality", function() {
   });
 
   it('temperature color starts off as yellow', function(){
-    expect(thermostat.colour).toEqual('yellow');
+    expect(thermostat.tempColour).toEqual('yellow');
   });
 
   it('temperature color is green when the temperature is below 18', function() {
+    thermostat.defaultTemp = 18;
+    thermostat.down();
+    expect(thermostat.tempColour).toEqual('green');
+  });
+
+  it('temperature color changes to yellow when it rises above 18', function() {
+    thermostat.tempColour = 'green';
     thermostat.defaultTemp = 17;
-    expect(thermostat.colour).toEqual('green');
+    thermostat.up();
+    expect(thermostat.tempColour).toEqual('yellow');
   });
 
 });
