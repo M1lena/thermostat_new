@@ -4,5 +4,8 @@ $(document).ready(function() {
 
   $('#temperature').text(thermostat.defaultTemp);
 
-
+  $('#upButton').click (function(){
+    thermostat.up();
+    $('#temperature').text(thermostat.defaultTemp);
+  });
 });
