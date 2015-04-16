@@ -1,0 +1,17 @@
+describe("Interface functionality", function() {
+
+  beforeEach(function() {
+    thermostat = new Thermostat();
+    jasmine.getFixtures().fixturesPath = '.';
+    loadFixtures('index.html');
+  });
+
+  it('displays default temperature', function() {
+    expect('#temperature').toContainText('20')
+  });
+
+  it('has up button to increase temperature', function() {
+    expect('#upButton').toBeVisible()
+  });
+
+});
