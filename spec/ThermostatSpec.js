@@ -10,4 +10,10 @@ describe("thermostat functionality", function() {
     expect(thermostat.default_temp).toEqual(21);
   });
 
+  it('can decrease the temperature', function() {
+    thermostat = new Thermostat();
+    thermostat.down();
+    expect(thermostat.down).toEqual(19);
+  });
+
 });
