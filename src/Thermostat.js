@@ -13,6 +13,7 @@ Thermostat.prototype.up = function() {
     throw new Error('32 is the maximum');
   };
   this.defaultTemp ++;
+  this.colour();
 };
 
 Thermostat.prototype.down = function() {
@@ -34,5 +35,8 @@ Thermostat.prototype.resetTemp = function() {
 Thermostat.prototype.colour = function() {
   if (this.defaultTemp < 18) {
     this.tempColour = 'green';
+  };
+  if (this.defaultTemp > 17 && this.defaultTemp <25) {
+    this.tempColour = 'yellow';
   };
 };

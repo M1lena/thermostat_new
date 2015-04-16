@@ -72,4 +72,9 @@ describe("thermostat functionality", function() {
     expect(thermostat.tempColour).toEqual('yellow');
   });
 
+  it('temperature color changes to red when temperature is above 24', function() {
+    thermostat.defaultTemp = 24;
+    thermostat.up();
+    expect(thermostat.tempColour).toEqual('red');
+  });
 });
