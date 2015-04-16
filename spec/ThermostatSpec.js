@@ -13,7 +13,13 @@ describe("thermostat functionality", function() {
   it('can decrease the temperature', function() {
     thermostat = new Thermostat();
     thermostat.down();
-    expect(thermostat.down).toEqual(19);
+    expect(thermostat.default_temp).toEqual(19);
+  });
+
+  it('has a minimum temperature of 10', function(){
+    thermostat = new Thermostat();
+    thermostat.default_temp = 10;
+    expect( function(){ thermostat.down(); } ).toThrow(new Error('10 is the minimum temp'));
   });
 
 });

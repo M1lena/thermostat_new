@@ -3,5 +3,9 @@ var Thermostat = function(){
 };
 
 Thermostat.prototype.up = function() {
-  this.default_temp ++
+  this.default_temp ++;
+};
+
+Thermostat.prototype.down = function() {
+  this.default_temp --;
 };
