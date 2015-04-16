@@ -77,4 +77,10 @@ describe("thermostat functionality", function() {
     thermostat.up();
     expect(thermostat.tempColour).toEqual('red');
   });
+
+  it('temperature colour changes to yellow when thermostat reset', function(){
+    thermostat.tempColour = 'red';
+    thermostat.resetTemp();
+    expect(thermostat.tempColour).toEqual('yellow');
+  });
 });

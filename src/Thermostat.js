@@ -30,13 +30,15 @@ Thermostat.prototype.change = function() {
 
 Thermostat.prototype.resetTemp = function() {
   this.defaultTemp = 20;
+  this.colour();
 };
 
 Thermostat.prototype.colour = function() {
   if (this.defaultTemp < 18) {
-    this.tempColour = 'green';
+    return this.tempColour = 'green';
   };
-  if (this.defaultTemp > 17 && this.defaultTemp <25) {
-    this.tempColour = 'yellow';
+  if (this.defaultTemp > 17 && this.defaultTemp < 25) {
+    return this.tempColour = 'yellow';
   };
+  this.tempColour = 'red';
 };
