@@ -24,4 +24,6 @@ $(document).ready(function() {
     $('#temperature').text(thermostat.defaultTemp);
   });
 
+  $('#temperature').css('color', 'Yellow');
+
 });

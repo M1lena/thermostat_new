@@ -68,7 +68,13 @@ describe("Interface functionality", function() {
   });
 
   it('temperature is displayed as yellow initially', function() {
-    expect('#temperature').toHaveCss({color: "rgb(255,255,0)"});
+    expect($('#temperature').css('color')).toEqual('rgb(255, 255, 0)');
   });
 
+  it('temperature is displayed in green if temperature is less than 18', function() {
+    for (i = 0; i < 3; i++) {
+    $('#downButton').click();
+    }
+    expect($('#temperature').css('color')).toEqual('rgb(0, 128, 0)');
+  });
 });
