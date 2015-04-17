@@ -32,11 +32,14 @@ describe("Interface functionality", function() {
     expect('#resetButton').toBeVisible();
   });
 
-  // it('the reset button that resets temperature to 20', function() {
-  //   // $('#upButton').click();
-  //   // $('#upButton').click();
-  //   // $(#resetButton).click();
-  //   expect('#temperature').toContainTest('20')
-  // });
+  it('the reset button resets temperature to 20', function() {
+    $('#upButton').click();
+    $('#resetButton').click();
+    expect('#temperature').toContainText('20')
+  });
+
+  it('there is a powersaving checkbox', function() {
+    expect('#powersavingBox').toBeVisible();
+  });
 
 });

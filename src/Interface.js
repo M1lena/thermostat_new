@@ -14,4 +14,9 @@ $(document).ready(function() {
     $('#temperature').text(thermostat.defaultTemp);
   });
 
+  $('#resetButton').click (function(){
+    thermostat.resetTemp();
+    $('#temperature').text(thermostat.defaultTemp);
+  });
+
 });
