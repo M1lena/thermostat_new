@@ -35,11 +35,40 @@ describe("Interface functionality", function() {
   it('the reset button resets temperature to 20', function() {
     $('#upButton').click();
     $('#resetButton').click();
-    expect('#temperature').toContainText('20')
+    expect('#temperature').toContainText('20');
   });
 
-  it('there is a powersaving checkbox', function() {
-    expect('#powersavingBox').toBeVisible();
+  it('has is a powersaving button', function() {
+    expect('#powersavingButton').toBeVisible();
+  });
+
+  it('can increase temperature above 25 when powersaving button is clicked', function() {
+    $('#powersavingButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    expect('#temperature').toContainText(26);
+  });
+
+  it('temperature cannot go above 32 when powersaving mode is turned off', function() {
+    $('#powersavingButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    $('#upButton').click();
+    expect('#temperature').toContainText(32);
   });
 
 });

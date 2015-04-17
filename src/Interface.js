@@ -19,4 +19,9 @@ $(document).ready(function() {
     $('#temperature').text(thermostat.defaultTemp);
   });
 
+  $('#powersavingButton').click (function(){
+    thermostat.change();
+    $('#temperature').text(thermostat.defaultTemp);
+  });
+
 });
