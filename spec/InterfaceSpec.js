@@ -73,8 +73,15 @@ describe("Interface functionality", function() {
 
   it('temperature is displayed in green if temperature is less than 18', function() {
     for (i = 0; i < 3; i++) {
-    $('#downButton').click();
+      $('#downButton').click();
     }
     expect($('#temperature').css('color')).toEqual('rgb(0, 128, 0)');
+  });
+
+  it('temperature is displayed in red if temperature is greater than 24', function() {
+    for (i = 0; i < 5 ; i++) {
+      $('#upButton').click();
+    }
+    expect($('#temperature').css('color')).toEqual('rgb(255, 0, 0)');
   });
 });
