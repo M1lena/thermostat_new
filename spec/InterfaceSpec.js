@@ -28,4 +28,15 @@ describe("Interface functionality", function() {
     expect('#temperature').toContainText('19');
   });
 
+  it('has a reset button', function() {
+    expect('#resetButton').toBeVisible();
+  });
+
+  // it('the reset button that resets temperature to 20', function() {
+  //   // $('#upButton').click();
+  //   // $('#upButton').click();
+  //   // $(#resetButton).click();
+  //   expect('#temperature').toContainTest('20')
+  // });
+
 });
