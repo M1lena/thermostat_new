@@ -26,6 +26,10 @@ Thermostat.prototype.down = function() {
 
 Thermostat.prototype.change = function() {
   this.powerSaver = !(this.powerSaver);
+  if (this.powerSaver && this.defaultTemp > 25) {
+    this.defaultTemp = 25;
+    this.colour;
+  }
 };
 
 Thermostat.prototype.resetTemp = function() {

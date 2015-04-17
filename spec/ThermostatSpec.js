@@ -83,4 +83,12 @@ describe("thermostat functionality", function() {
     thermostat.resetTemp();
     expect(thermostat.tempColour).toEqual('yellow');
   });
+
+  it('if temperature is above 25 and powersaving is switched, should fall to 25', function() {
+    thermostat.defaultTemp = 25;
+    thermostat.change();
+    thermostat.up();
+    thermostat.change();
+    expect(thermostat.defaultTemp).toEqual(25);
+  });
 });

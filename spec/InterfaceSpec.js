@@ -44,31 +44,31 @@ describe("Interface functionality", function() {
 
   it('can increase temperature above 25 when powersaving button is clicked', function() {
     $('#powersavingButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
+    for (i = 0; i < 6; i++) {
+      $('#upButton').click();
+    }
     expect('#temperature').toContainText(26);
   });
 
   it('temperature cannot go above 32 when powersaving mode is turned off', function() {
     $('#powersavingButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
-    $('#upButton').click();
+    for (i = 0; i < 12; i++) {
+      $('#upButton').click();
+    }
     expect('#temperature').toContainText(32);
+  });
+
+  it('if temperature is above 25, and powersaving is activated temperature falls to 25', function() {
+    $('#powersavingButton').click();
+    for (i = 0; i < 6; i++) {
+      $('#upButton').click();
+    }
+    $('#powersavingButton').click();
+    expect('#temperature').toContainText(25);
+  });
+
+  it('temperature is displayed as yellow initially', function() {
+    expect('#temperature').toHaveCss({color: "rgb(255,255,0)"});
   });
 
 });
